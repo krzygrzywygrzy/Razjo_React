@@ -1,8 +1,8 @@
 import Home from "./components/home_page/home";
-import { BrowserRouter, Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import LogIn from "./components/auth/login";
 import SignIn from "./components/auth/signin";
-import Dashboard from "./dashboard/dashboar";
+import Dashboard from "./components/dashboard/dashboard";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route path="/signin" exact component={SignIn} />
         <Route path="/dashboard" exact component={Dashboard} />
       </div>
+      
     </BrowserRouter>
   );
 }
