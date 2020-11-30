@@ -1,11 +1,12 @@
 import React from "react";
 
 export default function Header() {
+  //TODO: #F87171 -> make this a bg color
   return (
     <div className="md: grid grid-cols-3">
       <div className=" md: col-span-2 flex bg-red-400 text-white p-4">
-        <div className="flex flex-row">
-          <div className="ml-36">Razjo</div>
+        <div className="flex flex-row items-baseline">
+          <div className="ml-36 text-xl font-bold">Razjo</div>
           <div className="ml-4">about</div>
           <div></div>
         </div>
