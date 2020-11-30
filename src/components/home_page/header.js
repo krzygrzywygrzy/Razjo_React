@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   //TODO: #F87171 -> make this a bg color
@@ -14,10 +15,10 @@ export default function Header() {
       <div className="md: col-span-1 p-4 flex justify-end">
         <div className="mr-40 flex flex-row">
           <div className="text-gray-600">
-            <a href="#">Sign in</a>
+            <Link to="/signin">Sign in</Link>
           </div>
           <div className="ml-4 ">
-            <a href="#">Log in</a>
+          <Link to="/login">Log in</Link>
           </div>
         </div>
       </div>
