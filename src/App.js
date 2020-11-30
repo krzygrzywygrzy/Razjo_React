@@ -1,9 +1,11 @@
-
+import Header from "./components/home_page/header";
+import HeroSection from "./components/home_page/heroSection";
 
 function App() {
   return (
     <div className="App">
-      <div className="text-blue-400">Tailwind</div>
+      <Header/>
+      <HeroSection/>
     </div>
   );
 }
