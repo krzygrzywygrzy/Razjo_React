@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Note from "./note";
 
 //TODO: design in Adobe XD
 
@@ -9,8 +10,9 @@ function Dashboard(props) {
   return (
     <div className="grid md:grid-cols-4">
       {/* left section */}
-      <div className="md:col-span-1 bg-red-400 p-2 min-h-screen">
+      <div className="md:col-span-1 bg-red-400 p-2 min-h-screen mr-2">
         <div className="text-2xl text-white">Callendar</div>
+        <div className="text-2xl text-white">Notifications</div>
       </div>
       {/* right section*/}
       <div className="md:col-span-3 p-2">
@@ -19,7 +21,16 @@ function Dashboard(props) {
           <div className="text-2xl text-gray-600">Notes</div>
           <div>Account</div>
         </div>
-        <div>{/*Display notes*/}</div>
+        <div className="flex flex-row flex-wrap">
+          {/*Display notes*/}
+          {notes.map((item) => {
+            return (
+              <div key={item.key} className="w-1/4">
+                <Note data={item} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

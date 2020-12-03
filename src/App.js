@@ -11,6 +11,8 @@ import rootReducer from "./reducers/rootReducer";
 
 const store = createStore(rootReducer);
 
+//TODO: make home page responsive
+
 function App() {
   return (
     <Provider store={store}>
