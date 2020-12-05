@@ -9,8 +9,8 @@ export default function Searchbar() {
   };
 
   return (
-    <div>
-      <div className="flex flex-row border-b-2 ">
+    <div className="flex flex-row border-b-2">
+      <div>
         <form>
           <input
             type="text"
@@ -21,7 +21,6 @@ export default function Searchbar() {
           />
         </form>
       </div>
-      <div className="text-gray"></div>
     </div>
   );
 }
