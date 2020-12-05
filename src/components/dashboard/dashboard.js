@@ -9,9 +9,9 @@ import Searchbar from "./searchbar";
 function Dashboard(props) {
   let { notes, privateNotes } = props;
   return (
-    <div className="grid md:grid-cols-4">
+    <div className="grid md:grid-cols-4 min-h-screen">
       {/* left section */}
-      <div className="md:col-span-1 bg-red-400 pl-2 pb-2 pt-2 min-h-full">
+      <div className="md:col-span-1 bg-red-400 pl-2 pb-2 pt-2">
         <div className="grid md:grid-cols-6">
           {/* Callendar nad notifications */}
           <div className="col-span-5">
@@ -39,7 +39,7 @@ function Dashboard(props) {
             <Searchbar />
           </div>
           {/* account */}
-          <div className="col-span-1">account</div>
+          <div className="col-span-1 flex justify-end">account</div>
         </div>
 
         {/* notes section */}
@@ -50,7 +50,7 @@ function Dashboard(props) {
               {/*Display notes*/}
               {notes.map((item) => {
                 return (
-                  <div key={item.key} className="sm:w-1/2 lg:w-1/4">
+                  <div key={item.key} className="sm:w-1/2 lg:w-1/3">
                     <Note data={item} />
                   </div>
                 );
@@ -58,7 +58,7 @@ function Dashboard(props) {
             </div>
           </div>
           {/* Private notes */}
-          <div className="col-span-1">
+          <div className="col-span-1 border-l-2">
             {/* Display Notes */}
             {privateNotes.map((item) => {
               return (
