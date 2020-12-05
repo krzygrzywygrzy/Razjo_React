@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Note from "./note";
+import Searchbar from "./searchbar";
 
 //TODO: design in Adobe XD
 
@@ -15,11 +16,10 @@ function Dashboard(props) {
         <div className="text-2xl text-white">Notifications</div>
       </div>
       {/* right section*/}
-      <div className="md:col-span-3 p-2">
+      <div className="md:col-span-2 p-2">
         {/* top section -> Title & account info */}
-        <div className="flex flex-row justify-between">
-          <div className="text-2xl text-gray-600">Notes</div>
-          <div>Account</div>
+        <div className="flex flex-row justify-center">
+          <Searchbar />
         </div>
         <div className="flex flex-row flex-wrap">
           {/*Display notes*/}
@@ -31,6 +31,9 @@ function Dashboard(props) {
             );
           })}
         </div>
+      </div>
+      <div className="md:col-span-1 p-2">
+        <div>Account</div>
       </div>
     </div>
   );
