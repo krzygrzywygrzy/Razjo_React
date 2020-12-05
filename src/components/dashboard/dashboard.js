@@ -1,25 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
+import Avatar from "./avatar";
 import Note from "./note";
 import Searchbar from "./searchbar";
 
 //TODO: design in Adobe XD
 
 function Dashboard(props) {
-  let { notes } = props;
-  console.log(notes);
+  let { notes, privateNotes } = props;
   return (
     <div className="grid md:grid-cols-4">
       {/* left section */}
-      <div className="md:col-span-1 bg-red-400 p-2 min-h-screen mr-2">
-        <div className="grid md:grid-cols-12">
+      <div className="md:col-span-1 bg-red-400 pl-2 pb-2 pt-2 min-h-full">
+        <div className="grid md:grid-cols-6">
           {/* Callendar nad notifications */}
-          <div className="col-span-9">
+          <div className="col-span-5">
             <div className="text-2xl text-white">Callendar</div>
             <div className="text-2xl text-white">Notifications</div>
           </div>
           {/* Patients list */}
-          <div className="col-span-3"></div>
+          <div className="col-span-1 border-l-2 flex justify-center ">
+            <div>
+              {/*TODO: when api done change to real accounts */}
+              <Avatar label="PP" />
+              <Avatar label="JD" />
+              <Avatar label="JP" />
+              <Avatar label="KKK" />
+            </div>
+          </div>
         </div>
       </div>
       {/* right section*/}
@@ -42,7 +50,7 @@ function Dashboard(props) {
               {/*Display notes*/}
               {notes.map((item) => {
                 return (
-                  <div key={item.key} className="w-1/4">
+                  <div key={item.key} className="sm:w-1/2 lg:w-1/4">
                     <Note data={item} />
                   </div>
                 );
@@ -51,7 +59,14 @@ function Dashboard(props) {
           </div>
           {/* Private notes */}
           <div className="col-span-1">
-            Private notes
+            {/* Display Notes */}
+            {privateNotes.map((item) => {
+              return (
+                <div key={item.key}>
+                  <Note data={item} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -62,6 +77,7 @@ function Dashboard(props) {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    privateNotes: state.privateNotes,
   };
 };
 

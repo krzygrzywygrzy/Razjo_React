@@ -18,25 +18,14 @@ const initState = {
       date: Date.now(),
       key: 3,
     },
-    {
-      title: "Oh boy",
-      content: "Ut fermentum ullamcorper est, eget.",
-      date: Date.now(),
-      key: 4,
-    },
-    {
-      title: "Damn",
-      content: "Lorem ipsum dolor sit amet.",
-      date: Date.now(),
-      key: 5,
-    },
-    {
-      title: "Oh boy",
-      content: "Ut fermentum ullamcorper est, eget.",
-      date: Date.now(),
-      key: 6,
-    },
   ],
+  privateNotes: [
+    {
+      title: "123",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      key: 1,
+    }
+  ]
 };
 
 const rootReducer = (state = initState, action) => {
@@ -44,5 +33,3 @@ const rootReducer = (state = initState, action) => {
 };
 
 export default rootReducer;
-
-

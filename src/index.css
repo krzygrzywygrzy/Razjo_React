@@ -12,9 +12,3 @@ code {
     monospace;
 }
 
-.searchbar {
-}
-
-.searchbar:focus {
-  outline: none;
-}

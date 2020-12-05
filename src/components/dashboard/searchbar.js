@@ -9,7 +9,7 @@ export default function Searchbar() {
   };
 
   return (
-    <div className="flex flex-row border-b-2">
+    <div className="flex flex-row border-b-2 ml-8 mr-8">
       <div>
         <form>
           <input
@@ -17,7 +17,7 @@ export default function Searchbar() {
             value={search}
             onChange={handleChange}
             placeholder="search"
-            className="p-2 searchbar"
+            className="p-2 focus:outline-none"
           />
         </form>
       </div>
