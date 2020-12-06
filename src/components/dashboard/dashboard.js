@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import Avatar from "./avatar";
+import Navbar from "./navbar";
 import Note from "./note";
-import Searchbar from "./searchbar";
+
 
 //TODO: design in Adobe XD
 
@@ -31,16 +32,9 @@ function Dashboard(props) {
         </div>
       </div>
       {/* right section*/}
-      <div className="md:col-span-3 p-2">
+      <div className="md:col-span-3">
         {/* top section -> Title & account info */}
-        <div className="grid grid-cols-3 pb-2">
-          {/* searchbar */}
-          <div className="col-span-2">
-            <Searchbar />
-          </div>
-          {/* account */}
-          <div className="col-span-1 flex justify-end">account</div>
-        </div>
+        <Navbar />
 
         {/* notes section */}
         <div className="grid grid-cols-3">
