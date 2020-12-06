@@ -17,7 +17,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div className="App">
+        <div className="App font-body">
           <Route path="/" exact component={Home} />
           <Route path="/login" component={LogIn} />
           <Route path="/signin" exact component={SignIn} />
