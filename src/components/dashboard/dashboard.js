@@ -10,10 +10,10 @@ import Note from "./note";
 function Dashboard(props) {
   let { notes, privateNotes } = props;
   return (
-    <div className="grid md:grid-cols-4 min-h-screen">
+    <div className="grid lg:grid-cols-4 min-h-screen">
       {/* left section */}
-      <div className="md:col-span-1 bg-red-400 pl-2 pb-2 pt-2">
-        <div className="grid md:grid-cols-6">
+      <div className="lg:col-span-1 bg-red-400 pl-2 pb-2 pt-2">
+        <div className="grid lg:grid-cols-6">
           {/* Callendar nad notifications */}
           <div className="col-span-5">
             <Calendar />
@@ -31,7 +31,7 @@ function Dashboard(props) {
         </div>
       </div>
       {/* right section*/}
-      <div className="md:col-span-3">
+      <div className="lg:col-span-3">
         {/* top section -> Title & account info */}
         <Navbar />
 
