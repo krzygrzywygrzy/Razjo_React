@@ -9,8 +9,8 @@ export default function Navbar() {
         <div className="pl-4 text-lg">Welcome back on December 6th!</div>
         {/* account and notifications */}
         <div className="pt-2 pr-4 flex justify-end items-center">
-         
-          <Avatar label="JD" />
+          <div></div>
+          <Avatar label="JD" active={true} />
         </div>
       </div>
     </div>

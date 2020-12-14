@@ -15,7 +15,11 @@ export default function Calendar() {
       {/* days names */}
       <div className="grid grid-cols-7">
         {dayNames.map((item) => {
-          return <div key={item} className="col-span-1 text-center">{item}</div>;
+          return (
+            <div key={item} className="col-span-1 text-center">
+              {item}
+            </div>
+          );
         })}
       </div>
       {/*Actual callendar */}

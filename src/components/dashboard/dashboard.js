@@ -5,12 +5,18 @@ import Calendar from "./calendar";
 import Navbar from "./navbar";
 import Note from "./note";
 
-//TODO: design in Adobe XD
-
 function Dashboard(props) {
   let { notes, privateNotes } = props;
+
+  //TODO: make get the month, year and day
+  let now = Date();
+  console.log(now);
+
   return (
     <div className="grid lg:grid-cols-4 min-h-screen">
+      <div className="lg:hidden">
+        <Navbar />
+      </div>
       {/* left section */}
       <div className="lg:col-span-1 bg-red-400 pl-2 pb-2 pt-2">
         <div className="grid lg:grid-cols-6">
@@ -18,10 +24,20 @@ function Dashboard(props) {
           <div className="col-span-5">
             <Calendar />
           </div>
-          {/* Patients list */}
-          <div className="col-span-1 border-l-2 flex justify-center ">
-            <div>
-              {/*TODO: when api done change to real accounts */}
+          <div>
+            {/* Patients list */}
+            {/* on large screen */}
+            <div className="col-span-1 border-l-2  justify-center hidden lg:flex ">
+              <div>
+                {/*TODO: when api done change to real accounts */}
+                <Avatar label="PP" />
+                <Avatar label="JD" />
+                <Avatar label="JP" />
+                <Avatar label="KKK" />
+              </div>
+            </div>
+            {/*on small screen */}
+            <div className="lg:hidden flex flex-row ">
               <Avatar label="PP" />
               <Avatar label="JD" />
               <Avatar label="JP" />
@@ -33,7 +49,10 @@ function Dashboard(props) {
       {/* right section*/}
       <div className="lg:col-span-3">
         {/* top section -> Title & account info */}
-        <Navbar />
+        {/* display on large screen */}
+        <div className="hidden lg:block">
+          <Navbar />
+        </div>
 
         {/* notes section */}
         <div className="grid grid-cols-3">
