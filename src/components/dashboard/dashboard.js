@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import Avatar from "./avatar";
+import Calendar from "./calendar";
 import Navbar from "./navbar";
 import Note from "./note";
-
 
 //TODO: design in Adobe XD
 
@@ -16,8 +16,7 @@ function Dashboard(props) {
         <div className="grid md:grid-cols-6">
           {/* Callendar nad notifications */}
           <div className="col-span-5">
-            <div className="text-2xl text-white">Callendar</div>
-            <div className="text-2xl text-white">Notifications</div>
+            <Calendar />
           </div>
           {/* Patients list */}
           <div className="col-span-1 border-l-2 flex justify-center ">
