@@ -7,13 +7,9 @@ import Note from "./note";
 
 function Dashboard(props) {
   let { notes, privateNotes } = props;
-
-  //TODO: make get the month, year and day
-  let now = Date();
-  console.log(now);
-
+  
   return (
-    <div className="grid lg:grid-cols-4 min-h-screen">
+    <div className="grid lg:grid-cols-4 lg:min-h-screen">
       <div className="lg:hidden">
         <Navbar />
       </div>
@@ -24,7 +20,7 @@ function Dashboard(props) {
           <div className="col-span-5">
             <Calendar />
           </div>
-          <div>
+          <div className="lg:ml-2">
             {/* Patients list */}
             {/* on large screen */}
             <div className="col-span-1 border-l-2  justify-center hidden lg:flex ">
@@ -37,7 +33,7 @@ function Dashboard(props) {
               </div>
             </div>
             {/*on small screen */}
-            <div className="lg:hidden flex flex-row ">
+            <div className="lg:hidden flex flex-row pt-2">
               <Avatar label="PP" />
               <Avatar label="JD" />
               <Avatar label="JP" />
@@ -55,14 +51,14 @@ function Dashboard(props) {
         </div>
 
         {/* notes section */}
-        <div className="grid grid-cols-3">
+        <div className="lg:grid lg:grid-cols-3">
           {/* Notes of the patients */}
-          <div className="col-span-2">
+          <div className="lg:col-span-2">
             <div className="flex flex-row flex-wrap">
               {/*Display notes*/}
               {notes.map((item) => {
                 return (
-                  <div key={item.key} className="sm:w-1/2 lg:w-1/3">
+                  <div key={item.key} className="w-1/2 lg:w-1/3">
                     <Note data={item} />
                   </div>
                 );
@@ -70,11 +66,11 @@ function Dashboard(props) {
             </div>
           </div>
           {/* Private notes */}
-          <div className="col-span-1 border-l-2">
+          <div className="lg:col-span-1 lg:border-l-2">
             {/* Display Notes */}
             {privateNotes.map((item) => {
               return (
-                <div key={item.key}>
+                <div key={item.key} className="w-1/2">
                   <Note data={item} />
                 </div>
               );
