@@ -46,7 +46,7 @@ function Dashboard(props) {
       </div>
 
       {/* right section*/}
-      <div className="lg:col-span-3">
+      <div className="lg:col-span-3 bg-gray-50">
         {/* top section -> Title & account info */}
         {/* display on large screen */}
         <div className="hidden lg:block">

@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CalendarDates from "calendar-dates";
 
 export default function Calendar() {
-  const calendarDates = new CalendarDates();
-  const date = new Date();
-  let calendar = calendarDates.getMatrix(date);
-  console.log(calendar, date);
+  const [calendar, setCalendar] = useState([]);
+  const [month, setMonth] = useState();
+
+  useEffect(() => {
+    getDates();
+  }, [setCalendar]);
+
+  const getDates = async () => {
+    let date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const calendarDates = new CalendarDates();
+    date = new Date(year, month);
+    let matrix = await calendarDates.getMatrix(date);
+    setCalendar(matrix);
+  };
 
   //Names of days
   const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  console.log(calendar);
 
   return (
     <div className="text-white">
@@ -23,8 +36,26 @@ export default function Calendar() {
         })}
       </div>
       {/*Actual callendar */}
-      <div className="grid grid-cols-7">
+      <div>
         {/*TODO: make callendar form the calendar-dates */}
+        {calendar.map((week, index) => {
+          return (
+            <div key={index}>
+              <div className="grid grid-cols-7">
+                {week.map((item) => {
+                  return (
+                    <div
+                      key={item.iso}
+                      className="col-span-1 flex justify-center"
+                    >
+                      {item.date}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -8,15 +8,17 @@ export default function Searchbar() {
     console.log(search);
   };
 
-  //TODO: make input 
+  //TODO: make input
 
   return (
-    <div className="flex flex-row  lg:w-3/5 w-4/5 p-2 ring-2 ring-gray-300 rounded">
-      <form>
-        <div className="w-full">
-          <input type="text" placeholder="search..." className="w-full focus:outline-none"/>
-        </div>
-      </form>
+    <div className="flex flex-row  lg:w-3/5 w-4/5 p-2 ring-2 ring-gray-300 rounded bg-white shadow">
+      <div className="w-full">
+        <input
+          type="text"
+          placeholder="search..."
+          className="w-full focus:outline-none"
+        />
+      </div>
     </div>
   );
 }

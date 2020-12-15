@@ -5,7 +5,7 @@ import Searchbar from "./searchbar";
 
 export default function Navbar() {
   return (
-    <div className="border-b-2 lg:mb-2">
+    <div className="border-b-2 lg:mb-2 bg-white">
       <div className="flex flex-row items-center justify-between">
         {/* welcome message */}
         <div className="pl-4 text-2xl font-light ">Razjo</div>
