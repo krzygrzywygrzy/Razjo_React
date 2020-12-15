@@ -3,16 +3,21 @@ import CalendarDates from "calendar-dates";
 
 export default function Calendar() {
   const [calendar, setCalendar] = useState([]);
-  const [month, setMonth] = useState();
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState(0);
 
   useEffect(() => {
     getDates();
-  }, [setCalendar]);
+  }, []);
 
   const getDates = async () => {
     let date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth();
+
+    setYear(year);
+    setMonth(monthNames[month]);
+
     const calendarDates = new CalendarDates();
     date = new Date(year, month);
     let matrix = await calendarDates.getMatrix(date);
@@ -21,10 +26,27 @@ export default function Calendar() {
 
   //Names of days
   const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  console.log(calendar);
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   return (
     <div className="text-white">
+      <div className="flex justify-center px-1 pt-1 pb-4">
+        <span className="text-xl border-b-2">{month} {year}</span>
+      </div>
+
       {/* days names */}
       <div className="grid grid-cols-7">
         {dayNames.map((item) => {

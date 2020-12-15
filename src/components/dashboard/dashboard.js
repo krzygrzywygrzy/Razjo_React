@@ -6,6 +6,7 @@ import Navbar from "./navbar";
 import Note from "./note";
 import Searchbar from "./searchbar";
 import { FaPlus } from "react-icons/fa";
+import NewNote from "./newNote";
 
 function Dashboard(props) {
   let { notes, privateNotes } = props;
@@ -28,6 +29,7 @@ function Dashboard(props) {
             <div className="col-span-1 border-l-2  justify-center hidden lg:flex ">
               <div>
                 {/*TODO: when api done change to real accounts */}
+                <Avatar label="+" />
                 <Avatar label="PP" />
                 <Avatar label="JD" />
                 <Avatar label="JP" />
@@ -35,7 +37,8 @@ function Dashboard(props) {
               </div>
             </div>
             {/*on small screen */}
-            <div className="lg:hidden flex flex-row pt-2">
+            <div className="lg:hidden flex flex-row pt-4">
+              <Avatar label="+" />
               <Avatar label="PP" />
               <Avatar label="JD" />
               <Avatar label="JP" />
@@ -57,13 +60,18 @@ function Dashboard(props) {
         </div>
 
         {/* notes section */}
+
+        {/* new note field */}
+        <div className="lg:flex justify-center hidden ">
+          <div className="w-3/5 ">
+            <NewNote />
+          </div>
+        </div>
         <div className="lg:grid lg:grid-cols-5">
           {/* Notes of the patients */}
 
           <div className="lg:col-span-3">
-            <span className=" p-4 text-gray-400">
-              Patients notes
-            </span>
+            <span className=" p-4 text-gray-400">Patients notes</span>
             <div className="flex flex-row flex-wrap">
               {/*Display notes*/}
               {notes.map((item) => {
@@ -77,9 +85,7 @@ function Dashboard(props) {
           </div>
           {/* Private notes */}
           <div className="lg:col-span-2 lg:border-l-1">
-            <span className=" p-4 text-gray-400">
-              Your private notes
-            </span>
+            <span className=" p-4 text-gray-400">Your private notes</span>
             {/* Display Notes */}
             {privateNotes.map((item) => {
               return (

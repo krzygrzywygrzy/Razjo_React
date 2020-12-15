@@ -16,7 +16,7 @@ export default function Navbar() {
         {/* account and notifications */}
         <div className="pt-2 pr-4 flex justify-end items-center">
           <div className="text-red-400 pr-2">
-            <FaBell size={25} />
+            <FaBell size={25} onClick={()=>{alert("notifications")}} />
           </div>
           <Avatar label="JD" active={true} />
         </div>
