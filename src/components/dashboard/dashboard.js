@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import Avatar from "./avatar";
 import Calendar from "./calendar";
 import Navbar from "./navbar";
-import Note from "./note";
+import Note from "./notes/note";
 import Searchbar from "./searchbar";
 import { FaPlus } from "react-icons/fa";
-import NewNote from "./newNote";
+import NewNote from "./notes/newNote";
 
 function Dashboard(props) {
   let { notes, privateNotes } = props;
@@ -62,7 +62,7 @@ function Dashboard(props) {
         {/* notes section */}
 
         {/* new note field */}
-        <div className="lg:flex justify-center hidden ">
+        <div className="lg:flex justify-center hidden  my-4">
           <div className="w-3/5 ">
             <NewNote />
           </div>
