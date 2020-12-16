@@ -2,7 +2,7 @@ import React from "react";
 import ColorPicker from "./colorPicker";
 
 export default function NoteOptions({ color, changeColor }) {
-  const colors = ["gray", "red", "green", "pink"];
+  const colors = ["gray", "yellow", "blue" ,"red", "green", "pink",];
 
   return (
     <div>

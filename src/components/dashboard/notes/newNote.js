@@ -8,7 +8,7 @@ class NewNote extends React.Component {
     this.changeColor = this.changeColor.bind(this);
     this.state = {
       active: false,
-      color: "green",
+      color: "gray",
     };
   }
 

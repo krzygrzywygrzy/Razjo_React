@@ -10,13 +10,18 @@ export default function Navbar() {
         {/* welcome message */}
         <div className="pl-4 text-2xl font-light ">Razjo</div>
         {/* searchbar -> shown only on the large screen */}
-        <div className="hidden lg:block w-4/6 lg:flex lg:justify-center">
+        <div className="hidden  w-4/6 lg:flex lg:justify-center">
           <Searchbar />
         </div>
         {/* account and notifications */}
         <div className="pt-2 pr-4 flex justify-end items-center">
           <div className="text-red-400 pr-2">
-            <FaBell size={25} onClick={()=>{alert("notifications")}} />
+            <FaBell
+              size={25}
+              onClick={() => {
+                alert("notifications");
+              }}
+            />
           </div>
           <Avatar label="JD" active={true} />
         </div>
