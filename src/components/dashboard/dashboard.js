@@ -63,7 +63,7 @@ function Dashboard(props) {
 
         {/* new note field */}
         <div className="lg:flex justify-center hidden  my-4">
-          <div className="w-3/5 ">
+          <div className="w-2/5 ">
             <NewNote />
           </div>
         </div>

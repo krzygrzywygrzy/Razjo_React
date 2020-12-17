@@ -3,9 +3,9 @@ import React from "react";
 export default function ColorPicker({ color, active, changeColor }) {
   let background = "bg-" + color + "-400 ";
   let outline = "";
-  
+
   if (active === color) {
-    outline = "ring-2 ring-"+color+"-600";
+    outline = "ring-2 ring-" + color + "-600";
   }
 
   return (
