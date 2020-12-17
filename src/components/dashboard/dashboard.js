@@ -76,7 +76,7 @@ function Dashboard(props) {
               {/*Display notes*/}
               {notes.map((item) => {
                 return (
-                  <div key={item.key} className="w-1/2 lg:w-1/3">
+                  <div key={item.id} className="w-1/2 lg:w-1/3">
                     <Note data={item} />
                   </div>
                 );
@@ -89,7 +89,7 @@ function Dashboard(props) {
             {/* Display Notes */}
             {privateNotes.map((item) => {
               return (
-                <div key={item.key} className="w-1/2">
+                <div key={item.id} className="w-1/2">
                   <Note data={item} />
                 </div>
               );
