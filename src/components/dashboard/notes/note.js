@@ -1,4 +1,5 @@
 import React from "react";
+import TextClamp from 'react-string-clamp';
 
 class Note extends React.Component {
   constructor(props) {
@@ -7,33 +8,6 @@ class Note extends React.Component {
     this.saveNote = this.saveNote.bind(this);
     this.state = { ...props.data, active: false };
   }
-
-  // componentDidUpdate() {
-  //   const close = () => {
-  //     this.saveNote();
-  //     window.removeEventListener("click", handleEventListener);
-  //   };
-
-  //   const handleEventListener = (event) => {
-  //     const flyoutElement = document.getElementById(this.state.id);
-  //     let targetElement = event.target;
-
-  //     do {
-  //       if (targetElement === flyoutElement) {
-  //         return;
-  //       }
-  //       targetElement = targetElement.parentNode;
-  //     } while (targetElement);
-
-  //     close();
-  //   };
-
-  //   if (this.state.active === true) {
-  //     setTimeout(function () {
-  //       window.addEventListener("click", handleEventListener);
-  //     }, 50);
-  //   }
-  // }
 
   handleClick() {
     let state = this.state;
@@ -71,7 +45,9 @@ class Note extends React.Component {
       layout = (
         <div onClick={this.handleClick} id={this.state.id}>
           <div className="text-md">{this.state.title}</div>
-          <div>{this.state.content}</div>
+          <div>
+            <TextClamp text={this.state.content} lines={12} />
+          </div>
         </div>
       );
     }
