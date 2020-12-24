@@ -22,10 +22,26 @@ const initState = {
       id: "3",
     },
   ],
-  privateNotes: [],
+  privateNotes: [
+    {
+      title: "Title",
+      content:
+        "Aliquam dictum ultrices elit vel vehicula. Sed ullamcorper turpis tempus dignissim sodales. Vestibulum tortor nibh, pharetra sit amet nisi ac, faucibus tempus purus. Quisque vel urna mattis, dapibus ante sed, egestas felis. Donec imperdiet orci quis massa cursus elementum. Donec et est velit. Mauris dolor augue, tristique id tempus et, malesuada convallis purus. Sed tempus massa et ligula interdum, quis cursus purus finibus. Etiam placerat ullamcorper magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus at gravida enim. Integer justo elit, porta non purus quis, pulvinar ornare tortor.",
+      color: "blue",
+      id: "1",
+    },
+  ],
 };
 
 const rootReducer = (state = initState, action) => {
+  if(action.type === 'ADD_PRIVATE'){
+    let notes = state.privateNotes;
+    notes = [...notes, action.note];
+    return {
+      notes: state.notes,
+      privateNotes: notes,
+    };
+  }
   return state;
 };
 

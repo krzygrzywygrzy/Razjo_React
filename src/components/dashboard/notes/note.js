@@ -6,6 +6,7 @@ class Note extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.saveNote = this.saveNote.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = { ...props.data, active: false };
   }
 
@@ -21,6 +22,8 @@ class Note extends React.Component {
     this.setState(state);
   }
 
+  handleChange(){}
+
   render() {
     let color = this.state.color;
     let background = "bg-" + color + "-100 "; //background color of the note
@@ -30,7 +33,7 @@ class Note extends React.Component {
 
     let layout;
     if (this.state.active === true) {
-      active = "relative";
+      active = "absolute";
       layout = (
         <div>
           <input
