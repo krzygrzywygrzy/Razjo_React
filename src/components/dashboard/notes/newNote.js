@@ -17,24 +17,32 @@ class NewNote extends React.Component {
     let state = this.state;
     state.active = true;
     this.setState(state);
-  }
+  };
 
   changeColor = (color) => {
     let state = this.state;
     state.color = color;
     this.setState(state);
-  }
+  };
 
   handleChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
-  }
+  };
 
   save = () => {
-    this.props.addNote({
-      title: this.state.title,
-      content: this.state.content,
-      color: this.state.color,
-      id: 12,
+    if (this.state.title !== "" && this.state.content !== "") {
+      this.props.addNote({
+        title: this.state.title,
+        content: this.state.content,
+        color: this.state.color,
+        id: 12,
+      });
+    }
+    this.setState({
+      active: false,
+      color: "gray",
+      title: "",
+      content: "",
     });
   };
 
@@ -43,10 +51,10 @@ class NewNote extends React.Component {
     let outline = "ring-" + this.state.color + "-400 "; // outline of the note
     let placeholder = "placeholder-" + this.state.color + "-400 "; // placeholder color
 
-    const isActive = this.state.active;
     let options; // options in the bottom of the note
     let layout; // the layout of the card
-    if (isActive) {
+    if (this.state.active) {
+      
       options = (
         <div className="flex justify-between" id="note">
           <NoteOptions

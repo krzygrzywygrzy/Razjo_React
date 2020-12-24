@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Avatar from "./avatar";
-import Calendar from "./calendar";
+import Avatar from "./user_display/avatar";
+import Calendar from "./calendar/calendar";
 import Navbar from "./navbar";
 import Note from "./notes/note";
 import Searchbar from "./searchbar";

@@ -1,46 +1,57 @@
 import React from "react";
-import TextClamp from 'react-string-clamp';
+import TextClamp from "react-string-clamp";
 
 class Note extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.saveNote = this.saveNote.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.state = { ...props.data, active: false };
   }
 
-  handleClick() {
+  handleClick = () => {
     let state = this.state;
     state.active = true;
     this.setState({ state });
-  }
+  };
 
-  saveNote() {
+  saveNote = () => {
     let state = this.state;
     state.active = false;
     this.setState(state);
-  }
+  };
 
-  handleChange(){}
+  handleChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
   render() {
     let color = this.state.color;
     let background = "bg-" + color + "-100 "; //background color of the note
     let outline = "ring-" + color + "-400 "; // outline of the note
-    // let placeholder = "placeholder-" + color + "-400 "; // placeholder color
+    let placeholder = "placeholder-" + color + "-400 "; // placeholder color
     let active;
 
     let layout;
     if (this.state.active === true) {
-      active = "absolute";
+      //LAYOUT WHEN NOTE IS IN EDIT MODE
+      active = "absolute left-1/2  ";
       layout = (
-        <div>
+        <div className="">
           <input
             value={this.state.title}
             className={background + "focus:outline-none w-full"}
+            id="title"
+            onChange={this.handleChange}
           />
           <br />
+          <textarea
+            className={
+              "resize-none focus:outline-none w-full overflow-hidden " +
+              background +
+              placeholder
+            }
+          >
+            {this.state.content}
+          </textarea>
         </div>
       );
     } else {
@@ -54,6 +65,8 @@ class Note extends React.Component {
         </div>
       );
     }
+
+
 
     return (
       <div

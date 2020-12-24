@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CalendarDates from "calendar-dates";
+import CalendarDay from "./calendarDay";
 
 export default function Calendar() {
   const [calendar, setCalendar] = useState([]);
@@ -70,7 +71,7 @@ export default function Calendar() {
                       key={item.iso}
                       className="col-span-1 flex justify-center"
                     >
-                      {item.date}
+                      <CalendarDay item={item}/>
                     </div>
                   );
                 })}

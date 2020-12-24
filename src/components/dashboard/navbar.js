@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "./avatar";
+import Avatar from './user_display/avatar';
 import { FaBell } from "react-icons/fa";
 import Searchbar from "./searchbar";
 
