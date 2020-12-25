@@ -58,7 +58,7 @@ class Note extends React.Component {
       active = "";
       layout = (
         <div onClick={this.handleClick} id={this.state.id}>
-          <div className="text-md">{this.state.title}</div>
+          <div className="text-md truncate">{this.state.title}</div>
           <div>
             <TextClamp text={this.state.content} lines={12} />
           </div>

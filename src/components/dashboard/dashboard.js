@@ -1,18 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import Avatar from "./user_display/avatar";
-import Calendar from "./calendar/calendar";
 import Navbar from "./navbar";
 import Note from "./notes/note";
 import Searchbar from "./searchbar";
 import { FaPlus } from "react-icons/fa";
 import NewNote from "./notes/newNote";
+import UserDisplay from "./user_display/user_display";
+import Calendar from "./calendar/calendar";
 
 function Dashboard(props) {
   let { notes, privateNotes } = props;
 
   return (
-    <div className="grid lg:grid-cols-4 lg:min-h-screen">
+    <div className="grid lg:grid-cols-4 lg:h-screen lg:max-h-screen">
       <div className="lg:hidden">
         <Navbar />
       </div>
@@ -29,20 +29,12 @@ function Dashboard(props) {
             <div className="col-span-1 border-l-2  justify-center hidden lg:flex ">
               <div>
                 {/*TODO: when api done change to real accounts */}
-                <Avatar label="+" />
-                <Avatar label="PP" />
-                <Avatar label="JD" />
-                <Avatar label="JP" />
-                <Avatar label="KKK" />
+                  <UserDisplay />
               </div>
             </div>
             {/*on small screen */}
-            <div className="lg:hidden flex flex-row pt-4">
-              <Avatar label="+" />
-              <Avatar label="PP" />
-              <Avatar label="JD" />
-              <Avatar label="JP" />
-              <Avatar label="KKK" />
+            <div className="lg:hidden  pt-4">
+              <UserDisplay />
             </div>
           </div>
         </div>
@@ -86,14 +78,17 @@ function Dashboard(props) {
           {/* Private notes */}
           <div className="lg:col-span-2 lg:border-l-1">
             <span className=" p-4 text-gray-400">Your private notes</span>
-            {/* Display Notes */}
-            {privateNotes.map((item) => {
-              return (
-                <div key={item.id} className="w-1/2">
-                  <Note data={item} />
-                </div>
-              );
-            })}
+
+            <div className="flex flex-row flex-wrap">
+              {/* Display Notes */}
+              {privateNotes.map((item) => {
+                return (
+                  <div key={item.id} className="w-1/2">
+                    <Note data={item} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -111,5 +106,6 @@ const mapStateToProps = (state) => {
     privateNotes: state.privateNotes,
   };
 };
+
 
 export default connect(mapStateToProps)(Dashboard);

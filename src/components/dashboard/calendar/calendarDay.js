@@ -7,5 +7,5 @@ export default function CalendarDay({ item }) {
     label = item.date;
   }
 
-  return <div className={"p-1 "}>{label}</div>;
+  return <span className={"p-1"}>{label}</span>;
 }

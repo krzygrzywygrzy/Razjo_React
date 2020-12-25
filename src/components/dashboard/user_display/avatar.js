@@ -10,7 +10,7 @@ export default function Avatar({ label, active }) {
     <div
       id="main"
       className={
-        "bg-white w-12 h-12 rounded-full flex justify-center items-center shadow-inner mb-2 mx-2 cursor-pointer " +
+        "bg-white w-12 h-12  rounded-full flex justify-center items-center shadow-inner mb-2 mx-2 cursor-pointer " +
         ring
       }
     >
