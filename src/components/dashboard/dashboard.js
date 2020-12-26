@@ -1,16 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
 import Navbar from "./navbar";
-import Note from "./notes/note";
 import Searchbar from "./searchbar";
 import { FaPlus } from "react-icons/fa";
 import NewNote from "./notes/newNote";
 import UserDisplay from "./user_display/user_display";
 import Calendar from "./calendar/calendar";
+import NotesSection from "./notes_section/notes_section";
 
-function Dashboard(props) {
-  let { notes, privateNotes } = props;
-
+function Dashboard() {
   return (
     <div className="grid lg:grid-cols-4 lg:h-screen lg:max-h-screen">
       <div className="lg:hidden">
@@ -29,7 +26,7 @@ function Dashboard(props) {
             <div className="col-span-1 border-l-2  justify-center hidden lg:flex ">
               <div>
                 {/*TODO: when api done change to real accounts */}
-                  <UserDisplay />
+                <UserDisplay />
               </div>
             </div>
             {/*on small screen */}
@@ -59,37 +56,9 @@ function Dashboard(props) {
             <NewNote />
           </div>
         </div>
-        <div className="lg:grid lg:grid-cols-5">
-          {/* Notes of the patients */}
-
-          <div className="lg:col-span-3">
-            <span className=" p-4 text-gray-400">Patients notes</span>
-            <div className="flex flex-row flex-wrap">
-              {/*Display notes*/}
-              {notes.map((item) => {
-                return (
-                  <div key={item.id} className="w-1/2 lg:w-1/3">
-                    <Note data={item} />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          {/* Private notes */}
-          <div className="lg:col-span-2 lg:border-l-1">
-            <span className=" p-4 text-gray-400">Your private notes</span>
-
-            <div className="flex flex-row flex-wrap">
-              {/* Display Notes */}
-              {privateNotes.map((item) => {
-                return (
-                  <div key={item.id} className="w-1/2">
-                    <Note data={item} />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+        {/*Notes section */}
+        <div>
+          <NotesSection />
         </div>
       </div>
       {/*Add new note button -> show only on little screen */}
@@ -100,12 +69,4 @@ function Dashboard(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    notes: state.notes,
-    privateNotes: state.privateNotes,
-  };
-};
-
-
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;

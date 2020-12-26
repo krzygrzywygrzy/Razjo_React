@@ -10,8 +10,6 @@ function Calendar() {
 
   dates.push({ year, month });
 
-  //TODO: repair the for loop to make what it is supposed to make
-
   for (let i = 0; i <= 2; i++) {
     let y, m;
     if (dates[dates.length - 1].month === 11) {
