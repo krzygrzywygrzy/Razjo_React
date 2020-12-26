@@ -7,38 +7,36 @@ function Calendar() {
   let date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth();
+
   dates.push({ year, month });
 
-    //TODO: repair the for loop to make what it is supposed to make
+  //TODO: repair the for loop to make what it is supposed to make
 
-  //   for (let i = 0; i <= 2; i++) {
-  //     let d = dates[dates.length - 1];
-
-  //     if (d.month === 11) {
-  //       d.year += 1;
-  //       d.month = 0;
-  //     } else {
-  //       d.month += 1;
-  //     }
-
-  //     dates.push({ year: d.year, month: d.month });
-  //   }
-
-  console.log(dates);
-
+  for (let i = 0; i <= 2; i++) {
+    let y, m;
+    if (dates[dates.length - 1].month === 11) {
+      m = 0;
+      y = dates[dates.length - 1].year + 1;
+    } else {
+      m = dates[dates.length - 1].month + 1;
+      y = dates[dates.length - 1].year;
+    }
+    dates.push({ year: y, month: m });
+  }
+  
   return (
     <div>
       <div>
-        <Month />
+        <Month month={dates[0].month} year={dates[0].year} />
       </div>
       <div className="hidden lg:block">
-        <Month />
+        <Month month={dates[1].month} year={dates[1].year} />
       </div>
       <div className="hidden lg:block">
-        <Month />
+        <Month month={dates[2].month} year={dates[2].year} />
       </div>
-      <div className="hidden lg:block">
-        <Month />
+      <div className="hidden lg:block" >
+        <Month month={dates[3].month} year={dates[3].year}/>
       </div>
     </div>
   );
