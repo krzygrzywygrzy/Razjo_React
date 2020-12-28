@@ -12,3 +12,6 @@ code {
     monospace;
 }
 
+.move-to-center {
+  transform: translateX(-17%);
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import TextClamp from "react-string-clamp";
+import './../../../index.css';
 
 class Note extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Note extends React.Component {
     let layout;
     if (this.state.active === true) {
       //LAYOUT WHEN NOTE IS IN EDIT MODE
-      active = "absolute left-1/2 top-1/4 ";
+      active = "fixed left-2/4 move-to-center ";
       shadow = "shadow-lg ";
       layout = (
         <div className="w-144">
@@ -72,7 +73,7 @@ class Note extends React.Component {
       active = " ";
       shadow = " ";
       layout = (
-        <div onDoubleClick={this.handleClick} id={this.state.id}>
+        <div onDoubleClick={this.handleClick} id={this.state.id} >
           <div className="text-md truncate">{this.state.title}</div>
           <div>
             <TextClamp text={this.state.content} lines={12} />
