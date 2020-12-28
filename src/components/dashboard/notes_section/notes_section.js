@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Note from './../notes/note';
+import Note from "./../notes/note";
+import PatientNotes from "./patients_notes";
 
 function NotesSection(props) {
   const { notes, privateNotes } = props;
@@ -10,15 +11,9 @@ function NotesSection(props) {
       {/* Notes of the patients */}
       <div className="lg:col-span-3">
         <span className=" p-4 text-gray-400">Patients notes</span>
-        <div className="flex flex-row flex-wrap">
+        <div>
           {/*Display notes*/}
-          {notes.map((item) => {
-            return (
-              <div key={item.id} className="w-1/2 lg:w-1/3">
-                <Note data={item} />
-              </div>
-            );
-          })}
+          <PatientNotes notes={notes} />
         </div>
       </div>
       {/* Private notes */}

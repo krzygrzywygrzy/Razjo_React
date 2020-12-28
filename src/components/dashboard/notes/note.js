@@ -29,13 +29,15 @@ class Note extends React.Component {
     let outline = "ring-" + color + "-400 "; // outline of the note
     let placeholder = "placeholder-" + color + "-400 "; // placeholder color
     let active;
+    let shadow;
 
     let layout;
     if (this.state.active === true) {
       //LAYOUT WHEN NOTE IS IN EDIT MODE
-      active = "absolute left-1/2  ";
+      active = "absolute left-1/2 top-1/4 ";
+      shadow = "shadow-lg ";
       layout = (
-        <div className="">
+        <div className="w-96">
           <input
             value={this.state.title}
             className={background + "focus:outline-none w-full"}
@@ -49,15 +51,28 @@ class Note extends React.Component {
               background +
               placeholder
             }
+            rows={12}
           >
             {this.state.content}
           </textarea>
+          <div className="flex items-end flex-col">
+            <div className={"pr-2 text-" + color + "-400"}>
+              Last edit: today
+            </div>
+            <div
+              onClick={this.saveNote}
+              className={"pr-2 text-" + color + "-400 cursor-pointer"}
+            >
+              Save
+            </div>
+          </div>
         </div>
       );
     } else {
-      active = "";
+      active = " ";
+      shadow = " ";
       layout = (
-        <div onClick={this.handleClick} id={this.state.id}>
+        <div onDoubleClick={this.handleClick} id={this.state.id}>
           <div className="text-md truncate">{this.state.title}</div>
           <div>
             <TextClamp text={this.state.content} lines={12} />
@@ -66,15 +81,14 @@ class Note extends React.Component {
       );
     }
 
-
-
     return (
       <div
         className={
-          "ring-2 p-2 mx-4 my-2  rounded max-h-96   " +
+          "ring-2 p-2 mx-4 my-2  rounded max-h-96 " +
           background +
           outline +
-          active
+          active +
+          shadow
         }
       >
         {layout}

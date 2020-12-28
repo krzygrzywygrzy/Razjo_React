@@ -21,6 +21,13 @@ const initState = {
       color: "pink",
       id: "3",
     },
+    {
+      title: "Title",
+      content:
+        "Nulla vitae elementum dui. Vestibulum nec magna id lorem porttitor rhoncus. Nullam a arcu lacus. Proin vitae libero eget turpis interdum maximus. Aenean tincidunt convallis ante, a rhoncus nisl ultricies ac. Sed vulputate, risus sit amet suscipit porttitor, sapien purus mollis metus, ac gravida dui augue a est. Maecenas massa justo, pellentesque non hendrerit at, eleifend nec lectus.",
+      color: "pink",
+      id: "3",
+    },
   ],
   privateNotes: [
     {
@@ -34,7 +41,7 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-  if(action.type === 'ADD_PRIVATE'){
+  if (action.type === "ADD_PRIVATE") {
     let notes = state.privateNotes;
     notes = [...notes, action.note];
     return {

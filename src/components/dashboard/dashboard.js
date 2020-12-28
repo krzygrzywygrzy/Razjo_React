@@ -9,7 +9,7 @@ import NotesSection from "./notes_section/notes_section";
 
 function Dashboard() {
   return (
-    <div className="grid lg:grid-cols-4 lg:h-screen lg:max-h-screen">
+    <div className="grid lg:grid-cols-4 xl:h-screen lg:max-h-screen">
       <div className="lg:hidden">
         <Navbar />
       </div>
@@ -47,9 +47,7 @@ function Dashboard() {
         <div className="p-4 flex justify-center lg:hidden">
           <Searchbar />
         </div>
-
         {/* notes section */}
-
         {/* new note field */}
         <div className="lg:flex justify-center hidden  my-4">
           <div className="w-2/5 ">

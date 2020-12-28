@@ -2,6 +2,8 @@ import React from "react";
 import NoteOptions from "./options";
 import { connect } from "react-redux";
 
+//TODO: repair closing the element
+
 class NewNote extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,7 @@ class NewNote extends React.Component {
   };
 
   save = () => {
-    if (this.state.title !== "" && this.state.content !== "") {
+    if (this.state.title !== "" || this.state.content !== "") {
       this.props.addNote({
         title: this.state.title,
         content: this.state.content,
@@ -38,12 +40,12 @@ class NewNote extends React.Component {
         id: 12,
       });
     }
-    this.setState({
+    this.state = {
       active: false,
       color: "gray",
       title: "",
       content: "",
-    });
+    };
   };
 
   render() {
@@ -54,7 +56,6 @@ class NewNote extends React.Component {
     let options; // options in the bottom of the note
     let layout; // the layout of the card
     if (this.state.active) {
-      
       options = (
         <div className="flex justify-between" id="note">
           <NoteOptions
@@ -89,6 +90,7 @@ class NewNote extends React.Component {
               onChange={this.handleChange}
               placeholder="type here..."
               id="content"
+              rows={12}
               value={this.state.content}
               className={
                 "resize-none focus:outline-none w-full overflow-hidden " +
@@ -129,30 +131,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(NewNote);
-
-// componentDidUpdate() {
-//   const close = () => {
-//     this.saveNote();
-//     window.removeEventListener("click", handleEventListener);
-//   };
-
-//   const handleEventListener = (event) => {
-//     const flyoutElement = document.getElementById("note");
-//     let targetElement = event.target;
-
-//     do {
-//       if (targetElement === flyoutElement) {
-//         return;
-//       }
-//       targetElement = targetElement.parentNode;
-//     } while (targetElement);
-
-//     close();
-//   };
-
-//   if (this.state.active === true) {
-//     setTimeout(function () {
-//       window.addEventListener("click", handleEventListener);
-//     }, 50);
-//   }
-// }
