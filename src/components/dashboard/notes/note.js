@@ -37,7 +37,7 @@ class Note extends React.Component {
       active = "absolute left-1/2 top-1/4 ";
       shadow = "shadow-lg ";
       layout = (
-        <div className="w-96">
+        <div className="w-144">
           <input
             value={this.state.title}
             className={background + "focus:outline-none w-full"}

@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       fontFamily: {
         body: ['Nunito'],
+      },
+      spacing: {
+        '128': '32rem',
+        '144': '36rem'
       }
     },
   },
