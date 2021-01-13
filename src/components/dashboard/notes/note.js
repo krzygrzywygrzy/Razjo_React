@@ -35,6 +35,7 @@ class Note extends React.Component {
     let layout;
     if (this.state.active === true) {
       //LAYOUT WHEN NOTE IS IN EDIT MODE
+      
       active = "fixed left-2/4 move-to-center ";
       shadow = "shadow-lg ";
       layout = (
